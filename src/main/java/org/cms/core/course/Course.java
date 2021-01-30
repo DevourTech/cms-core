@@ -1,7 +1,12 @@
-package org.cms.course;
+package org.cms.core.course;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Course {
 
+    @Id
     private int id;
     private String name;
     private String description;
@@ -11,7 +16,6 @@ public class Course {
     }
 
     public Course(int id, String name, String description) {
-        super();
         this.id = id;
         this.name = name;
         this.description = description;
