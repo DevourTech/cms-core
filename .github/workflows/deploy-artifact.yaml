@@ -1,4 +1,4 @@
-name: Deploy snapshot for CMS core
+name: Deploy artifact for CMS core
 
 on:
   push:
