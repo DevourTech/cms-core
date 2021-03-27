@@ -9,7 +9,7 @@ public class Course implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private String id;
 
 	private String name;
 	private String description;
@@ -21,17 +21,17 @@ public class Course implements Serializable {
 		this.description = description;
 	}
 
-	public Course(int id, String name, String description) {
+	public Course(String id, String name, String description) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
