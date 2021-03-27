@@ -9,7 +9,7 @@ public class Student implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private String id;
 
     private String name;
 
@@ -18,17 +18,17 @@ public class Student implements Serializable {
     public Student(String name) {
         this.name = name;
     }
-
-    public Student(int id, String name) {
+    
+    public Student(String id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
