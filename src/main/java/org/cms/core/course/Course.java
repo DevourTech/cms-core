@@ -2,13 +2,16 @@ package org.cms.core.course;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "course")
 public class Course implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GenericGenerator(name = "course_id_generator", strategy = "org.cms.core.course.CourseIdGenerator")
+	@GeneratedValue(generator = "course_id_generator")
+	@Column(name = "course_id", unique = true, nullable = false)
 	private String id;
 
 	private String name;
