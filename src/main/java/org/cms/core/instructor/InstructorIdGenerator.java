@@ -1,29 +1,24 @@
-package org.cms.core.course;
+package org.cms.core.instructor;
 
 import java.io.Serializable;
-import java.sql.*;
-import java.util.Locale;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.id.IdentifierGenerator;
 
-public class CourseIdGenerator implements IdentifierGenerator {
+public class InstructorIdGenerator implements IdentifierGenerator {
 
 	@Override
 	public Serializable generate(SharedSessionContractImplementor sharedSessionContractImplementor, Object o) throws HibernateException {
-		Course course = null;
-		boolean b = o instanceof Course;
-		if (!b) {
-			return null;
-		}
-		course = (Course) o;
-		String branch = course.getBranch();
-		String prefix = branch.substring(0, 3).toUpperCase();
+		String prefix = "INST";
 		Connection connection = sharedSessionContractImplementor.connection();
 
 		try {
 			PreparedStatement pstat = connection.prepareStatement(
-				"select count(*)  from org_cms.course",
+				"select count(*)  from org_cms.instructor",
 				ResultSet.TYPE_SCROLL_INSENSITIVE,
 				ResultSet.CONCUR_UPDATABLE
 			);
