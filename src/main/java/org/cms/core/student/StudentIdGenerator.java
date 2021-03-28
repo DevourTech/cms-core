@@ -10,7 +10,7 @@ public class StudentIdGenerator implements IdentifierGenerator {
 
 	@Override
 	public Serializable generate(SharedSessionContractImplementor sharedSessionContractImplementor, Object o) throws HibernateException {
-		String prefix = "STUDENT";
+		String prefix = "STU";
 		Connection connection = sharedSessionContractImplementor.connection();
 
 		try {
