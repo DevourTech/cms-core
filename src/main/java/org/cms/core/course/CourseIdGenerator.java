@@ -10,7 +10,14 @@ public class CourseIdGenerator implements IdentifierGenerator {
 
 	@Override
 	public Serializable generate(SharedSessionContractImplementor sharedSessionContractImplementor, Object o) throws HibernateException {
-		String prefix = "COURSE";
+		Course course = null;
+		boolean b = o instanceof Course;
+		if (!b) {
+			return null;
+		}
+		course = (Course) o;
+		String branch = course.getBranch();
+		String prefix = branch.substring(0, 3);
 		Connection connection = sharedSessionContractImplementor.connection();
 
 		try {
