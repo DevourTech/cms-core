@@ -15,18 +15,21 @@ public class Course implements Serializable {
 	private String id;
 
 	private String name;
+	private String branch;
 	private String description;
 
 	public Course() {}
 
-	public Course(String name, String description) {
+	public Course(String name, String branch, String description) {
 		this.name = name;
+		this.branch = branch;
 		this.description = description;
 	}
 
-	public Course(String id, String name, String description) {
+	public Course(String id, String name, String branch, String description) {
 		this.id = id;
 		this.name = name;
+		this.branch = branch;
 		this.description = description;
 	}
 
@@ -40,6 +43,14 @@ public class Course implements Serializable {
 
 	public String getName() {
 		return name;
+	}
+
+	public String getBranch() {
+		return branch;
+	}
+
+	public void setBranch(String branch) {
+		this.branch = branch;
 	}
 
 	public void setName(String name) {
