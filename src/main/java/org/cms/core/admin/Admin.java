@@ -1,28 +1,27 @@
-package org.cms.core.student;
+package org.cms.core.admin;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "student")
-public class Student implements Serializable {
+@Table(name = "admin")
+public class Admin implements Serializable {
 
 	@Id
-	@GenericGenerator(name = "student_id_generator", strategy = "org.cms.core.student.StudentIdGenerator")
-	@GeneratedValue(generator = "student_id_generator")
+	@GenericGenerator(name = "admin_id_generator", strategy = "org.cms.core.admin.AdminIdGenerator")
+	@GeneratedValue(generator = "admin_id_generator")
 	private String id;
 
 	private String name;
 	private String password;
 
-	public Student() {}
+	public Admin() {}
 
-	public Student(String name) {
-		this.name = name;
-	}
-
-	public Student(String id, String name) {
+	public Admin(String id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -49,10 +48,5 @@ public class Student implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	@Override
-	public String toString() {
-		return "Student{" + "id=" + id + ", name='" + name + '}';
 	}
 }
