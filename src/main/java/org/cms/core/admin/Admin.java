@@ -1,16 +1,16 @@
 package org.cms.core.admin;
 
-import org.hibernate.annotations.GenericGenerator;
-
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.io.Serializable;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "admin")
 public class Admin implements Serializable {
+
 	@Id
 	@GenericGenerator(name = "admin_id_generator", strategy = "org.cms.core.admin.AdminIdGenerator")
 	@GeneratedValue(generator = "admin_id_generator")

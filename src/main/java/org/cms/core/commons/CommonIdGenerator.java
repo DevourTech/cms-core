@@ -1,21 +1,21 @@
 package org.cms.core.commons;
 
-import org.hibernate.engine.spi.SharedSessionContractImplementor;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import org.hibernate.engine.spi.SharedSessionContractImplementor;
 
 public class CommonIdGenerator {
-	public static String generateId(String prefix, String tableName, SharedSessionContractImplementor sharedSessionContractImplementor) {
+
+	public static String generateId(String prefix, String sql, SharedSessionContractImplementor sharedSessionContractImplementor) {
 		Connection connection = sharedSessionContractImplementor.connection();
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(
-					"select count(*)  from org_cms." + tableName,
-					ResultSet.TYPE_SCROLL_INSENSITIVE,
-					ResultSet.CONCUR_UPDATABLE
+				sql,
+				ResultSet.TYPE_SCROLL_INSENSITIVE,
+				ResultSet.CONCUR_UPDATABLE
 			);
 			ResultSet rs = preparedStatement.executeQuery();
 			int id = 0;
