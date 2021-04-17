@@ -1,10 +1,9 @@
 package org.cms.core.instructor;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
+import javax.persistence.*;
+import org.cms.core.course.Course;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -18,6 +17,9 @@ public class Instructor implements Serializable {
 
 	private String name;
 	private String password;
+
+	@OneToMany
+	private List<Course> courses;
 
 	public String getPassword() {
 		return password;
@@ -58,6 +60,14 @@ public class Instructor implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public List<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
 	}
 
 	@Override

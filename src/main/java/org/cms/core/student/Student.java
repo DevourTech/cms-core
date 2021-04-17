@@ -1,7 +1,9 @@
 package org.cms.core.student;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.*;
+import org.cms.core.course.Course;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -15,6 +17,9 @@ public class Student implements Serializable {
 
 	private String name;
 	private String password;
+
+	@OneToMany
+	private List<Course> courses;
 
 	public Student() {}
 
@@ -49,6 +54,14 @@ public class Student implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public List<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
 	}
 
 	@Override
