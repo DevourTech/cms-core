@@ -1,7 +1,7 @@
 package org.cms.core.instructor;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Set;
 import javax.persistence.*;
 import org.cms.core.course.Course;
 import org.hibernate.annotations.GenericGenerator;
@@ -18,8 +18,8 @@ public class Instructor implements Serializable {
 	private String name;
 	private String password;
 
-	@OneToMany
-	private List<Course> courses;
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Set<Course> courses;
 
 	public String getPassword() {
 		return password;
@@ -62,11 +62,11 @@ public class Instructor implements Serializable {
 		this.name = name;
 	}
 
-	public List<Course> getCourses() {
+	public Set<Course> getCourses() {
 		return courses;
 	}
 
-	public void setCourses(List<Course> courses) {
+	public void setCourses(Set<Course> courses) {
 		this.courses = courses;
 	}
 

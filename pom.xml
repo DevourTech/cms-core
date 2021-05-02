@@ -13,7 +13,7 @@
 
     <groupId>org.cms</groupId>
     <artifactId>core</artifactId>
-    <version>1.1.4</version>
+    <version>1.2.0</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -47,6 +47,12 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
             <version>2.4.2</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
+
 
     </dependencies>
 
