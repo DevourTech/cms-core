@@ -2,7 +2,7 @@ package org.cms.core.course;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 import javax.persistence.*;
 import org.cms.core.instructor.Instructor;
 import org.cms.core.student.Student;
@@ -24,11 +24,11 @@ public class Course implements Serializable {
 
 	@JsonIgnore
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "subscribedCourses")
-	private Set<Student> students;
+	private List<Student> students;
 
 	@JsonIgnore
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "courses")
-	private Set<Instructor> instructors;
+	private List<Instructor> instructors;
 
 	public Course() {}
 
