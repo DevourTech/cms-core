@@ -2,6 +2,7 @@ package org.cms.core.course;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.List;
 import javax.persistence.*;
 import org.cms.core.instructor.Instructor;
@@ -21,6 +22,9 @@ public class Course implements Serializable {
 	private String name;
 	private String branch;
 	private String description;
+
+	@Transient
+	private static List<String> branches = Arrays.asList("CSE", "ECE", "IT", "BIO");
 
 	@JsonIgnore
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "subscribedCourses")
@@ -75,6 +79,10 @@ public class Course implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public static List<String> getBranches() {
+		return branches;
 	}
 
 	@Override
